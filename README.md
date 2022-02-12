@@ -1,2 +1,1 @@
-# ajaxBooks
-ajaxBooks
+# MERN_CRUD blog site
