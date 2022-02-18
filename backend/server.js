@@ -23,12 +23,12 @@ const db = require("./node_app/models");
 db.mongoose
     .connect(db.url, {
         useNewUrlParser: true,
-        useUnifiesTopology: true
+        useUnifiedTopology: true
     })
     .then(() => {
         console.log("Connect to database!");
     })
-    .catch(() => {
+    .catch(err => {
         console.log("Cannot connect to the database!", err);
         process.exit();
     });
