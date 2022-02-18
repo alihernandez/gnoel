@@ -23,17 +23,19 @@ const db = require("./node_app/models");
 db.mongoose
     .connect(db.url, {
         useNewUrlParser: true,
-        useUnifiesTopology: true
+        useUnifiedTopology: true
     })
     .then(() => {
         console.log("Connect to database!");
     })
-    .catch(() => {
+    .catch(err => {
         console.log("Cannot connect to the database!", err);
         process.exit();
     });
 
+require("./node_app/routes/blog.routes")(app);
+
 const PORT = process.env.PORT || 8080;
-app.list(PORT, () => {
+app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`);
 });
