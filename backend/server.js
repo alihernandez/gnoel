@@ -33,7 +33,9 @@ db.mongoose
         process.exit();
     });
 
+require("./node_app/routes/blog.routes")(app);
+
 const PORT = process.env.PORT || 8080;
-app.list(PORT, () => {
+app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`);
 });
