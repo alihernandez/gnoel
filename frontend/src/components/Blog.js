@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import BlogDataService from "../services/blog.service";
 const Blog = props => {
     const initialBlogState = {
-        d: null,
+        id: null,
         title: "",
         description: "",
         published: false
@@ -22,10 +22,12 @@ const Blog = props => {
     useEffect(() => {
         getBlog(props.match.params.id);
     }, [props.match.params.id]);
+
     const handleInputChange = event => {
         const { name, value } = event.target;
         setCurrentBlog({ ...currentBlog, [name]: value });
     };
+
     const updatePublished = status => {
         var data = {
             id: currentBlog.id,
@@ -42,6 +44,7 @@ const Blog = props => {
             console.log(e);
         });
     };
+    
     const updateBlog = () => {
         BlogDataService.update(currentBlog.id, currentBlog)
         .then(response => {

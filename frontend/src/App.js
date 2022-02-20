@@ -10,12 +10,12 @@ function App() {
     return (
       <div>
         <nav className="navbar navbar-expand navbar-dark bg-dark">
-          <a href="/tutorials" className="navbar-brand">
+          <a href="/" className="navbar-brand">
             GP NOEL
           </a>
           <div className="navbar-nav mr-auto">
             <li className="nav-item">
-              <Link to={"/blogs"} className="nav-link">
+              <Link to={"/"} className="nav-link">
                 Articles
               </Link>
             </li>
@@ -28,8 +28,8 @@ function App() {
         </nav>
         <div className="container mt-3">
           <Routes>
-            <Route exact path="/" component={BlogList} />
-            <Route exact path="/add" component={AddBlog} />
+            <Route exact path="/" exact element={<BlogList />} />
+            <Route exact path="/add" exact element={<AddBlog />} />
             <Route path="/blogs/:id" component={Blog} />
           </Routes>
         </div>
