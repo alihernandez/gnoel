@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
 import BlogDataService from "../services/blog.service";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 const BlogList = () => {
     const [blogs, setBlogs] = useState([]);
     const [currentBlog, setCurrentBlog] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(-1);
     const [searchTitle, setSearchTitle] = useState("");
+
     useEffect(() => {
         retrieveBlogs();
     }, []);
+
     const onChangeSearchTitle = e => {
         const searchTitle = e.target.value;
         setSearchTitle(searchTitle);
@@ -23,6 +25,8 @@ const BlogList = () => {
             console.log(e);
         });
     };
+    
+
     const refreshList = () => {
         retrieveBlogs();
         setCurrentBlog(null);
@@ -120,8 +124,11 @@ const BlogList = () => {
               {currentBlog.published ? "Published" : "Pending"}
             </div>
             <Link
-              to={"/blogs/" + currentBlog.id}
-              className="badge badge-warning"
+              to={"/blogs/" + currentBlog._id}
+              // className="badge badge-warning"
+              onClick={() => {
+                console.log(currentBlog._id)
+              }}
             >
               Edit
             </Link>

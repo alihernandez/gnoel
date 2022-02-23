@@ -13,19 +13,17 @@ const AddBlog = () => {
     const handleInputChange = event => {
         const { name, value } = event.target;
         setBlog({ ...blog, [name]: value });
-    };
-
+    }
     const saveBlog = () => {
         var data = {
             title: blog.title,
             description: blog.description
         };
-        
         BlogDataService.create(data)
             .then(response => {
                 setBlog({
                     id: response.data.id,
-                    title: response.data.tile,
+                    title: response.data.title,
                     description: response.data.description,
                     published: response.data.published
                 });

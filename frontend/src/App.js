@@ -10,7 +10,7 @@ function App() {
     return (
       <div>
         <nav className="navbar navbar-expand navbar-dark bg-dark">
-          <a href="/" className="navbar-brand">
+          <a href="/blogs" className="navbar-brand">
             GP NOEL
           </a>
           <div className="navbar-nav mr-auto">
@@ -28,9 +28,9 @@ function App() {
         </nav>
         <div className="container mt-3">
           <Routes>
-            <Route exact path="/" exact element={<BlogList />} />
-            <Route exact path="/add" exact element={<AddBlog />} />
-            <Route path="/blogs/:id" component={Blog} />
+            <Route path="/" exact element={<BlogList />} />
+            <Route exact path="/add" element={<AddBlog />} />
+            <Route path="/blogs/:id" exact element={<Blog />} />
           </Routes>
         </div>
       </div>

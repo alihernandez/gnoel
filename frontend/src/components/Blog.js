@@ -1,72 +1,86 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import BlogDataService from "../services/blog.service";
-const Blog = props => {
+
+const Blog = props=> {
+
+    const { id } = useParams();
+
     const initialBlogState = {
-        id: null,
+        _id: null,
         title: "",
         description: "",
         published: false
-    };
+      };
+
+      
+
     const [currentBlog, setCurrentBlog] = useState(initialBlogState);
     const [message, setMessage] = useState("");
+
+    useEffect(() => {
+        getBlog(id);
+      }, [id]);
+
     const getBlog = id => {
         BlogDataService.get(id)
-        .then(response => {
+        // console.log(_id)
+          .then(response => {
             setCurrentBlog(response.data);
             console.log(response.data);
-        })
-        .catch(e => {
+          })
+          .catch(e => {
             console.log(e);
-        });
-    };
-    useEffect(() => {
-        getBlog(props.match.params.id);
-    }, [props.match.params.id]);
+          });
+      };
 
     const handleInputChange = event => {
         const { name, value } = event.target;
         setCurrentBlog({ ...currentBlog, [name]: value });
-    };
+      };
 
     const updatePublished = status => {
         var data = {
-            id: currentBlog.id,
-            title: currentBlog.title,
-            description: currentBlog.description,
-            published: status
+          id: currentBlog._id,
+          title: currentBlog.title,
+          description: currentBlog.description,
+          published: status
         };
-        BlogDataService.update(currentBlog.id, data)
-        .then(response => {
+    
+        BlogDataService.update(currentBlog._id, data)
+          .then(response => {
             setCurrentBlog({ ...currentBlog, published: status });
             console.log(response.data);
-        })
-        .catch(e => {
+          })
+          .catch(e => {
             console.log(e);
-        });
-    };
-    
+          });
+      };
+
     const updateBlog = () => {
-        BlogDataService.update(currentBlog.id, currentBlog)
-        .then(response => {
+        BlogDataService.update(currentBlog._id, currentBlog)
+          .then(response => {
             console.log(response.data);
             setMessage("The blog was updated successfully!");
-        })
-        .catch(e => {
+          })
+          .catch(e => {
             console.log(e);
-        });
-    };
+          });
+      };
+
     const deleteBlog = () => {
-        BlogDataService.remove(currentBlog.id)
-        .then(response => {
+        BlogDataService.remove(currentBlog._id)
+          .then(response => {
             console.log(response.data);
             props.history.push("/blogs");
-        })
-        .catch(e => {
+          })
+          .catch(e => {
             console.log(e);
-        });
-    };
-    return(
-        <div>
+          });
+      };
+
+    return (
+      <div>
       {currentBlog ? (
         <div className="edit-form">
           <h4>Blog</h4>
@@ -93,6 +107,7 @@ const Blog = props => {
                 onChange={handleInputChange}
               />
             </div>
+
             <div className="form-group">
               <label>
                 <strong>Status:</strong>
@@ -100,6 +115,7 @@ const Blog = props => {
               {currentBlog.published ? "Published" : "Pending"}
             </div>
           </form>
+
           {currentBlog.published ? (
             <button
               className="badge badge-primary mr-2"
@@ -115,9 +131,11 @@ const Blog = props => {
               Publish
             </button>
           )}
+
           <button className="badge badge-danger mr-2" onClick={deleteBlog}>
             Delete
           </button>
+
           <button
             type="submit"
             className="badge badge-success"
@@ -134,6 +152,7 @@ const Blog = props => {
         </div>
       )}
     </div>
-    );
+    )
 };
+
 export default Blog;
