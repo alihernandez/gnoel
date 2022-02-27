@@ -1,8 +1,10 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const cors = require("cors");
+const path = __dirname + '/node_app/views/';
 const app = express();
 var corOptions = {
-    origin: "http://localhost:8001"
+    origin: "http://localhost:8081"
 };
 
 app.use(cors(corOptions));
@@ -10,6 +12,12 @@ app.use(cors(corOptions));
 
 app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
+
+// Add Access Control Allow Origin headers
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    next();
+  });
 
 app.use(express.urlencoded({ extended: true }));
 // simple route

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import blogService from "../services/blog.service"; 
+import BlogDataService from "../services/blog.service"; 
 const AddBlog = () => {
     const initialBlogState = {
         id: null,
@@ -9,6 +9,7 @@ const AddBlog = () => {
     };
     const [blog, setBlog] = useState(initialBlogState);
     const [submitted, setSubmitted] = useState(false);
+
     const handleInputChange = event => {
         const { name, value } = event.target;
         setBlog({ ...blog, [name]: value });
@@ -22,7 +23,7 @@ const AddBlog = () => {
             .then(response => {
                 setBlog({
                     id: response.data.id,
-                    title: response.data.tile,
+                    title: response.data.title,
                     description: response.data.description,
                     published: response.data.published
                 });
@@ -37,7 +38,7 @@ const AddBlog = () => {
         setBlog(initialBlogState);
         setSubmitted(false);
     };
-    return(
+    return (
         <div className="submit-form">
       {submitted ? (
         <div>
