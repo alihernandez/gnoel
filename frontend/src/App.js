@@ -78,7 +78,7 @@ const App = () => {
             {showAdminBoard && (
             <li className="nav-item">
               <Link to={"/admin"} className="nav-link">
-                  Moderator Board
+                  Admin Board
                 </Link>
                 <Link to={"/add"} className="nav-link">
                 Add
@@ -132,7 +132,7 @@ const App = () => {
             <Route exact path="/register" element={<Register />} />
             <Route exact path="/profile" element={<Profile />} />
             <Route path="/user" element={<BoardUser />} />
-            <Route path="/admin" elementt={<BoardAdmin />} />
+            <Route exact path="/admin" element={<BoardAdmin />} />
             <Route path="/blogs/:id" exact element={<Blog />} />
           </Routes>
         </div>

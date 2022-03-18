@@ -36,16 +36,16 @@ const BlogList = () => {
         setCurrentBlog(blog);
         setCurrentIndex(index);
     };
-    const removeAllBlogs = () => {
-        BlogDataService.removeAll()
-        .then(response => {
-            console.log(response.data);
-            refreshList();
-        })
-        .catch(e => {
-            console.log(e);
-        });
-    };
+    // const removeAllBlogs = () => {
+    //     BlogDataService.removeAll()
+    //     .then(response => {
+    //         console.log(response.data);
+    //         refreshList();
+    //     })
+    //     .catch(e => {
+    //         console.log(e);
+    //     });
+    // };
     const findByTitle = () => {
         BlogDataService.findByTitle(searchTitle)
         .then(response => {
@@ -94,12 +94,12 @@ const BlogList = () => {
               </li>
             ))}
         </ul>
-        <button
+        {/* <button
           className="m-3 btn btn-sm btn-danger"
           onClick={removeAllBlogs}
         >
           Remove All
-        </button>
+        </button> */}
       </div>
       <div className="col-md-6">
         {currentBlog ? (
@@ -117,13 +117,13 @@ const BlogList = () => {
               </label>{" "}
               {currentBlog.description}
             </div>
-            <div>
+            {/* <div>
               <label>
                 <strong>Status:</strong>
               </label>{" "}
               {currentBlog.published ? "Published" : "Pending"}
-            </div>
-            <Link
+            </div> */}
+            {/* <Link
               to={"/blogs/" + currentBlog._id}
               // className="badge badge-warning"
               onClick={() => {
@@ -131,7 +131,7 @@ const BlogList = () => {
               }}
             >
               Edit
-            </Link>
+            </Link> */}
           </div>
         ) : (
           <div>
