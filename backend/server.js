@@ -10,7 +10,10 @@ var corOptions = {
 app.use(cors(corOptions));
 // parse requests of content-type - application/json
 
-app.use(express.json());
+// app.use(express.json());
+app.use(express.static(path));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 // parse requests of content-type - application/x-www-form-urlencoded
 
 // Add Access Control Allow Origin headers
@@ -19,7 +22,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(express.urlencoded({ extended: true }));
+// app.use(express.urlencoded({ extended: true }));
 // simple route
 
 app.get("/", (req, res) => {
