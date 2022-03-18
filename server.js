@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const path = __dirname + "/node_app/views/";
+const currPath = __dirname + "/node_app/views/";
 const app = express();
 var corOptions = {
   origin: "http://localhost:8081",
