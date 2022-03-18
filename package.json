@@ -6,6 +6,9 @@
   },
   "description": "backend for crud blog site",
   "main": "server.js",
+  "scripts":{
+    "start":"node server.js"
+    },
   "author": "Ali Hernandez",
   "license": "MIT",
   "dependencies": {
