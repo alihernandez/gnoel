@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const path = require('path');
 const currPath = __dirname + "/node_app/views/";
+const uri = process.env.MONGODB_URI;
 const app = express();
 var corOptions = {
   origin: "http://localhost:8081",
