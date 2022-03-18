@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const path = require('path');
 const currPath = __dirname + "/node_app/views/";
 const app = express();
 var corOptions = {
