@@ -36,7 +36,8 @@ app.get("/", (req, res) => {
 const db = require("./node_app/models");
 const Role = require("./node_app/models/role.model");
 db.mongoose
-  .connect(db.url, {
+  .connect(
+    process.env.MONGODB_URI || db.url, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
