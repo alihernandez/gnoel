@@ -38,7 +38,7 @@ const db = require("./node_app/models");
 const Role = require("./node_app/models/role.model");
 db.mongoose
   .connect(
-    process.env.MONGODB_URI, {
+    "mongodb+srv://ahernDB:DB80808@gpcluster.jg8tz.mongodb.net/gnoel?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
