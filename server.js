@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const env = require("dotenv");
 const path = require('path');
 const currPath = __dirname + "/node_app/views/";
 const uri = process.env.MONGODB_URI;
@@ -37,7 +38,7 @@ const db = require("./node_app/models");
 const Role = require("./node_app/models/role.model");
 db.mongoose
   .connect(
-    process.env.MONGODB_URI || db.url, {
+    process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
