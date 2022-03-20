@@ -5,6 +5,8 @@ const env = require("dotenv");
 const path = require('path');
 const currPath = __dirname + "/node_app/views/";
 const uri = process.env.MONGODB_URI;
+require('dotenv').config();
+
 const app = express();
 var corOptions = {
   origin: "http://localhost:8081",
@@ -38,7 +40,7 @@ const db = require("./node_app/models");
 const Role = require("./node_app/models/role.model");
 db.mongoose
   .connect(
-    "mongodb+srv://ahernDB:DB80808@gpcluster.jg8tz.mongodb.net/gnoel?retryWrites=true&w=majority", {
+    process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
