@@ -9,7 +9,7 @@ require('dotenv').config();
 
 const app = express();
 var corOptions = {
-  origin: `${process.env.MONGODB_URI}`
+  origin: "0.0.0.0/0"
 };
 
 app.use(cors(corOptions));
