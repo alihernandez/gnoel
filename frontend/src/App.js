@@ -64,8 +64,8 @@ const App = () => {
 // User: there is user value in the application state
 // Board Moderator: roles includes ROLE_MODERATOR
 // Board Admin: roles includes ROLE_ADMIN
-      <div>
-        <nav className="navbar navbar-expand navbar-dark bg-dark">
+      <div className="appContainer">
+        <nav className="navbar navbar-expand navbar-dark">
           <a href="/blogs" className="navbar-brand">
             GP NOEL
           </a>

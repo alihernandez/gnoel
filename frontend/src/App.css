@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+.appContainer {
+  background-color:#599FA6;
+  height: 100vh;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -37,10 +42,21 @@
   }
 }
 
+.navbar {
+  background-color:#59A687;
+  color: white;
+}
+
 .list {
   text-align: left;
   max-width: 750px;
   margin: auto;
+}
+
+.list-group {
+  border:#59A661;
+  border-style: double;
+  border-width: 5px;
 }
 .submit-form {
   max-width: 300px;
@@ -54,6 +70,10 @@
 label {
   display: block;
   margin-top: 10px;
+}
+
+h4 {
+  color: rgb(255, 255, 255);
 }
 .card-container.card {
   max-width: 350px !important;
@@ -79,4 +99,9 @@ label {
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border-radius: 50%;
+}
+
+.blogCard {
+  background-color: #f7f7f7;
+  
 }

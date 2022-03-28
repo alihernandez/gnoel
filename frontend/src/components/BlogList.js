@@ -103,8 +103,11 @@ const BlogList = () => {
       </div>
       <div className="col-md-6">
         {currentBlog ? (
+          
           <div>
             <h4>Blog</h4>
+            <div className="blogCard">
+              
             <div>
               <label>
                 <strong>Title:</strong>
@@ -133,6 +136,7 @@ const BlogList = () => {
               Edit
             </Link> */}
           </div>
+          </div>
         ) : (
           <div>
             <br />
@@ -141,6 +145,7 @@ const BlogList = () => {
         )}
       </div>
     </div>
+    
 
     );
 };
