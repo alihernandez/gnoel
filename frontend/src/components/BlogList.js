@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import BlogDataService from "../services/blog.service";
 import { Link, useParams } from "react-router-dom";
+import write from "../images/writing.jpg";
+import '../App.css';
 const BlogList = () => {
     const [blogs, setBlogs] = useState([]);
     const [currentBlog, setCurrentBlog] = useState(null);
@@ -58,6 +60,25 @@ const BlogList = () => {
     };
     return (
         <div className="list row">
+          <div className="head">
+          <h1 id="name">Garrett Noel</h1> 
+          <img id="writingPic" src={write}></img>
+          </div>
+            <div className="aboutMe">
+            
+            <p>
+            Busey ipsum dolor sit amet. You ever roasted doughnuts?It's good to yell at people and tell people that you're from Tennesee, so that way you'll be safe.Sometimes horses cough and fart at the same time, so stay out of the range of its butt muscle because a horses butt muscle is thick. 
+            <br />
+
+These kind of things only happen for the first time once.It's good to yell at people and tell people that you're from Tennesee, so that way you'll be safe.Have you urinated? Have you drained your bladder? Are you free? Because if you haven't it will only come out later. I'm giving you some information that your bodily fluids may penetrate your clothing fibre's without warning.
+<br />
+
+These kind of things only happen for the first time once.It's OK to get Rib-grease on your face, because you're allowing people to see that you're proud of these ribs.I would like to give you a backstage pass to my imagination.It's good to yell at people and tell people that you're from Tennesee, so that way you'll be safe.
+            </p>
+
+            </div>
+
+      <div id="arts">
       <div className="col-md-8">
         <div className="input-group mb-3">
           <input
@@ -69,7 +90,7 @@ const BlogList = () => {
           />
           <div className="input-group-append">
             <button
-              className="btn btn-outline-secondary"
+              className="btn"
               type="button"
               onClick={findByTitle}
             >
@@ -101,10 +122,14 @@ const BlogList = () => {
           Remove All
         </button> */}
       </div>
+      
       <div className="col-md-6">
         {currentBlog ? (
+          
           <div>
             <h4>Blog</h4>
+            <div className="blogCard">
+              
             <div>
               <label>
                 <strong>Title:</strong>
@@ -133,6 +158,7 @@ const BlogList = () => {
               Edit
             </Link> */}
           </div>
+          </div>
         ) : (
           <div>
             <br />
@@ -140,7 +166,11 @@ const BlogList = () => {
           </div>
         )}
       </div>
+      </div>
+
+      
     </div>
+    
 
     );
 };

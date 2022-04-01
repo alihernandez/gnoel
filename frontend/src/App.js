@@ -10,6 +10,7 @@ import "./App.css";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Profile from "./components/Profile";
+import Footer from "./components/Footer";
 
 import BoardUser from "./components/BoardUser";
 import BoardAdmin from "./components/BoardAdmin";
@@ -64,8 +65,8 @@ const App = () => {
 // User: there is user value in the application state
 // Board Moderator: roles includes ROLE_MODERATOR
 // Board Admin: roles includes ROLE_ADMIN
-      <div>
-        <nav className="navbar navbar-expand navbar-dark bg-dark">
+      <div className="appContainer">
+        <nav className="navbar navbar-expand navbar-dark">
           <a href="/blogs" className="navbar-brand">
             GP NOEL
           </a>
@@ -137,7 +138,10 @@ const App = () => {
           </Routes>
         </div>
         {/* <AuthVerify logOut={logOut}/> */}
+        <Footer />
+       
       </div>
+     
       // </Router>
     );
   }
