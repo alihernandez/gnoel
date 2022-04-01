@@ -3,13 +3,24 @@
 }
 
 .appContainer {
-  background-color:#599FA6;
-  height: 100vh;
+  background-color:#006666;
+  min-height: 100vh;
+  position: relative;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.aboutMe {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 5px;
+  background: whitesmoke;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -42,9 +53,34 @@
   }
 }
 
+.head {
+  display: flex;
+  flex-direction: row;
+  max-width: 75vw;
+  margin-bottom: 2%;
+  color: whitesmoke;
+  text-shadow: 0 2px 5px black;
+  /* background: whitesmoke; */
+  border: 2px solid black;
+    border-radius: 7px;
+}
+
 .navbar {
-  background-color:#59A687;
+  background-color:#3d6600;
   color: white;
+}
+
+.Footer {
+  border: 2px solid #282c34;
+  position: absolute;
+  bottom: 0;
+  min-width: 100vw;
+  background: #3d6600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: whitesmoke;
 }
 
 .list {
@@ -104,4 +140,31 @@ h4 {
 .blogCard {
   background-color: #f7f7f7;
   
+}
+
+.btn {
+  border: 2px solid #282c34;
+  border-radius: 5px;
+}
+
+#writingPic {
+  width: 50%;
+}
+#name {
+  margin-top: 15%;
+}
+
+#arts {
+  display: flex;
+  background: #006600;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2%;
+  margin-bottom: 25%;
+  border: 2px solid #282c34;
+}
+
+.input-group {
+  border-color: #282c34;
 }

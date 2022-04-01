@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import UserService from "../services/user.service";
 
-const Home = () => {
+const AboutMe = () => {
     useEffect(() => {
         UserService.getPublicContent().then((response) => {
             setContent(response.data);
@@ -14,12 +14,10 @@ const Home = () => {
         );
     }, []);
     return (
-        <div className="container">
-            <header className="jumbotron">
-                <h3>{content}</h3>
-            </header>
-           
+        <div className="aboutMe">
+            <h1>Garrett Noel</h1>
+
         </div>
     );
 };
-export default Home;
+export default AboutMe;

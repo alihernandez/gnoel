@@ -10,6 +10,7 @@ import "./App.css";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Profile from "./components/Profile";
+import Footer from "./components/Footer";
 
 import BoardUser from "./components/BoardUser";
 import BoardAdmin from "./components/BoardAdmin";
@@ -137,7 +138,10 @@ const App = () => {
           </Routes>
         </div>
         {/* <AuthVerify logOut={logOut}/> */}
+        <Footer />
+       
       </div>
+     
       // </Router>
     );
   }
