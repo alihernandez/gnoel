@@ -6,6 +6,7 @@ import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
 import { register } from "../actions/auth";
+import Footer from "./Footer";
 
 const required = (value) => {
     if (!value) {
@@ -137,6 +138,8 @@ const required = (value) => {
             <CheckButton style={{ display: "none" }} ref={checkBtn} />
           </Form>
         </div>
+
+        <Footer />
       </div>
     );
   };

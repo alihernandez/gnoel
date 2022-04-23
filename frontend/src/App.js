@@ -138,7 +138,11 @@ const App = () => {
           </Routes>
         </div>
         {/* <AuthVerify logOut={logOut}/> */}
-        <Footer />
+        <div className="Footer">
+            <p style={{textAlign:"center"}}>Please
+          submit a completed <h4>Contact Form</h4> and I will reach out to you shortly to
+          discuss rates and details. </p>
+        </div>
        
       </div>
      
