@@ -11,6 +11,7 @@ if (!req.body.title) {
 const blog = new Blog({
     title:req.body.title,
     description: req.body.description,
+    article: req.body.article,
     punlished: req.body.published ? req.body.published : false
 });
 // Save blog in database

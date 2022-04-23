@@ -142,6 +142,11 @@ These kind of things only happen for the first time once.It's OK to get Rib-grea
                 <strong>Description:</strong>
               </label>{" "}
               {currentBlog.description}
+            </div><div>
+              <label>
+                <strong>Article:</strong>
+              </label>{" "}
+              {currentBlog.article}
             </div>
             {/* <div>
               <label>
