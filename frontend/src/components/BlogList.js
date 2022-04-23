@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import BlogDataService from "../services/blog.service";
+import Footer from "./Footer";
 import { Link, useParams } from "react-router-dom";
 import write from "../images/writing.jpg";
 import '../App.css';
@@ -168,9 +169,9 @@ These kind of things only happen for the first time once.It's OK to get Rib-grea
       </div>
       </div>
 
+    
       
     </div>
-    
 
     );
 };
