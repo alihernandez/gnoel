@@ -18,8 +18,6 @@ if (!req.body.title) {
 const blog = new Blog({
     title:req.body.title,
     description: req.body.description,
-    article: req.body.article,
-    image: req.body.image,
     punlished: req.body.published ? req.body.published : false
 });
 // Save blog in database
