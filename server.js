@@ -16,8 +16,6 @@ var corOptions = {
 app.use(cors(corOptions));
 // parse requests of content-type - application/json
 
-// app.use(express.json());
-// app.use(express.static(path.resolve(__dirname, "./client/build")));
 app.use(express.static(currPath));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -29,7 +27,6 @@ app.use((req, res, next) => {
   next();
 });
 
-// app.use(express.urlencoded({ extended: true }));
 // simple route
 
 app.get("/", (req, res) => {

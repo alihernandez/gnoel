@@ -5,6 +5,8 @@ const AddBlog = () => {
         id: null,
         title: "",
         description: "",
+        article: "",
+        image: "",
         published: false
     };
     const [blog, setBlog] = useState(initialBlogState);
@@ -17,14 +19,17 @@ const AddBlog = () => {
     const saveBlog = () => {
         var data = {
             title: blog.title,
-            description: blog.description
+            description: blog.description,
+            article: blog.article,
+            image: blog.image
         };
-        BlogDataService.create(data)
+        BlogDataService.create(data) && BlogDataService.uploadFiles(data.image)
             .then(response => {
                 setBlog({
                     id: response.data.id,
                     title: response.data.title,
                     description: response.data.description,
+                    image: response.data.image,
                     published: response.data.published
                 });
                 setSubmitted(true);
@@ -50,8 +55,8 @@ const AddBlog = () => {
       ) : (
         <div>
           {/* <form
-            // action="/upload"
-            // method="POST"
+            action="/upload"
+            method="POST"
             encType="multipart/form-data"> */}
           <div className="form-group">
           
@@ -76,6 +81,30 @@ const AddBlog = () => {
               value={blog.description}
               onChange={handleInputChange}
               name="description"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="article">Article</label>
+            <input
+              type="text"
+              className="form-control"
+              id="article"
+              required
+              value={blog.article}
+              onChange={handleInputChange}
+              name="article"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="image">Image</label>
+            <input
+              type="file"
+              className="form-control"
+              id="image"
+              required
+              value={blog.image}
+              onChange={handleInputChange}
+              name="image"
             />
           </div>
           <button onClick={saveBlog} className="btn btn-success">

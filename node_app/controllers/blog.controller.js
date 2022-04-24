@@ -18,6 +18,8 @@ if (!req.body.title) {
 const blog = new Blog({
     title:req.body.title,
     description: req.body.description,
+    article: req.body.article,
+    image: req.bod.image,
     punlished: req.body.published ? req.body.published : false
 });
 // Save blog in database
@@ -36,6 +38,7 @@ blog
 
 
 exports.uploadFiles = async (req, res) => {
+    console.log("req made")
     try {
         await upload(req, res);
         console.log(req.file);
