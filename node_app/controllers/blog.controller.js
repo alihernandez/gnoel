@@ -19,7 +19,7 @@ const blog = new Blog({
     title:req.body.title,
     description: req.body.description,
     article: req.body.article,
-    cover: req.body.cover,
+    image: req.body.image,
     punlished: req.body.published ? req.body.published : false
 });
 // Save blog in database
@@ -34,6 +34,28 @@ blog
             err.message || "Some error occured while creating blog."
         });
     });
+};
+
+
+exports.uploadFiles = async (req, res) => {
+    try {
+        await upload(req, res);
+        console.log(req.file);
+        if(req.file == undefined) {
+            return res.send({
+                message: "You must select a file",
+            });
+        }
+        return res.send({
+            message: "File has been uploaded",
+        });
+    } catch (error) {
+        console.log(error);
+        return res.send({
+            message: "error when trying upload image ${error}",
+            
+        });
+    }
 };
 
 // Retrieve all Blogs from the database
@@ -143,25 +165,7 @@ exports.findAllPublished = (req, res) => {
     });
 };
 
-exports.uploadFiles = async (req, res) => {
-    try {
-        await upload(req, res);
-        console.log(req.file);
-        if(req.file == undefined) {
-            return res.send({
-                message: "You must select a file",
-            });
-        }
-        return res.send({
-            message: "File has been uploaded",
-        });
-    } catch (error) {
-        console.log(error);
-        return res.send({
-            message: "error when trying upload image ${error}",
-        });
-    }
-};
+
 exports.getListFiles = async (req, res) => {
     try {
         await mongoClient.connect();

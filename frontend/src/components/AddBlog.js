@@ -6,7 +6,7 @@ const AddBlog = () => {
     title: "",
     description: "",
     article:"",
-    cover:[],
+    image:[[]],
     published: false,
   };
   const [blog, setBlog] = useState(initialBlogState);
@@ -21,7 +21,7 @@ const AddBlog = () => {
       title: blog.title,
       description: blog.description,
       article: blog.article,
-      cover: blog.cover
+      image: blog.image
     };
     BlogDataService.create(data)
       .then((response) => {
@@ -30,7 +30,7 @@ const AddBlog = () => {
           title: response.data.title,
           description: response.data.description,
           description: response.data.article,
-          cover: response.data.cover,
+          image: response.data.image,
           published: response.data.published,
         });
         setSubmitted(true);
@@ -55,7 +55,12 @@ const AddBlog = () => {
         </div>
       ) : (
         <div>
+          {/* <form
+            // action="/upload"
+            // method="POST"
+            encType="multipart/form-data"> */}
           <div className="form-group">
+          
             <label htmlFor="title">Title</label>
             <input
               type="text"
@@ -91,6 +96,7 @@ const AddBlog = () => {
               name="article"
             />
           </div>
+          
           <div className="form-group">
             <label htmlFor="cover">Choose a cover image:</label>
             <input
@@ -100,12 +106,17 @@ const AddBlog = () => {
                 className="form-control-file border"
               />
           </div>
-          <button onClick={saveBlog} className="btn btn-success">
+          
+          <button type="submit" onClick={saveBlog} className="btn btn-success">
             Submit
           </button>
+          {/* </form> */}
         </div>
+        
       )}
+      
     </div>
+    
   );
 };
 export default AddBlog;

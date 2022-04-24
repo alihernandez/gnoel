@@ -139,7 +139,7 @@ These kind of things only happen for the first time once.It's OK to get Rib-grea
             </div>
             <div>
               <span>image</span>
-              <img src={currentBlog.cover}
+              <img src={currentBlog.image}
  alt="imgCover"></img>              
             </div>
             <div>

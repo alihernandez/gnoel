@@ -7,7 +7,7 @@ module.exports = mongoose => {
                 description: String,
                 article: String,
                 published: Boolean,
-                img: {
+                image: {
                     data: Buffer,
                     contentType: String
                 }

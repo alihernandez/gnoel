@@ -5,7 +5,7 @@ module.exports = app => {
     // Create a new Blog
     router.post("/", blogs.create);
 
-    router.post("/", blogs.uploadFiles);
+    router.post("/upload", blogs.uploadFiles);
     // Retrive all Blogs
     router.get("/", blogs.findAll);
     // Retrieve all published blogs
