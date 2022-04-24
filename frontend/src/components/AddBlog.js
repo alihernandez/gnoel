@@ -5,6 +5,8 @@ const AddBlog = () => {
     id: null,
     title: "",
     description: "",
+    article:"",
+    cover:[],
     published: false,
   };
   const [blog, setBlog] = useState(initialBlogState);
@@ -18,7 +20,8 @@ const AddBlog = () => {
     var data = {
       title: blog.title,
       description: blog.description,
-      article: blog.article
+      article: blog.article,
+      cover: blog.cover
     };
     BlogDataService.create(data)
       .then((response) => {
@@ -27,6 +30,7 @@ const AddBlog = () => {
           title: response.data.title,
           description: response.data.description,
           description: response.data.article,
+          cover: response.data.cover,
           published: response.data.published,
         });
         setSubmitted(true);
@@ -88,13 +92,13 @@ const AddBlog = () => {
             />
           </div>
           <div className="form-group">
-            <label for="avatar">Choose a cover image:</label>
+            <label htmlFor="cover">Choose a cover image:</label>
             <input
-              type="file"
-              id="avatar"
-              name="avatar"
-              accept="image/png, image/jpeg"
-            />
+                type="file"
+                name="file"
+                id="input-files"
+                className="form-control-file border"
+              />
           </div>
           <button onClick={saveBlog} className="btn btn-success">
             Submit

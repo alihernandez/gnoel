@@ -138,6 +138,11 @@ These kind of things only happen for the first time once.It's OK to get Rib-grea
               {currentBlog.title}
             </div>
             <div>
+              <span>image</span>
+              <img src={currentBlog.cover}
+ alt="imgCover"></img>              
+            </div>
+            <div>
               <label>
                 <strong>Description:</strong>
               </label>{" "}
@@ -148,6 +153,7 @@ These kind of things only happen for the first time once.It's OK to get Rib-grea
               </label>{" "}
               {currentBlog.article}
             </div>
+
             {/* <div>
               <label>
                 <strong>Status:</strong>
